@@ -1,0 +1,157 @@
+/*-------------------------------------------------------------------------------------*/
+
+/*BASE*/
+:root{
+    --back: rgb(35, 35, 35);
+    --text: white;
+    --primary: #f0dbbc;
+    --secondary: #d29b7c;
+    --couleur1: #00ffd9;
+    --couleur2: #ff0084;
+    --couleur3: #ffb300;
+    --couleur4: #351c75;
+    --couleur5: #13643a;
+    --couleur6: #855d00;
+  }
+  
+  *,
+  ::before,
+  ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+  }
+
+  body{
+    background: url("../assets/images/fond_Plan\ de\ travail\ 1.png"), rgb(35, 35, 35);
+    background-size: 100%;
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    color: var(--text);
+    display: inline-block;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  button{
+    font-size: 1rem;
+    color: var(--text);
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  }
+/*BASE*/
+  
+/*----------------------*/
+  
+/*SCROLLBAR*/
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--back);
+  }
+/*SCROLLBAR*/
+  
+/*-------------------------------------------------------------------------------------*/
+
+
+.retour{
+    position: absolute;
+    width: 3rem;
+    margin: 0.8rem;
+}
+
+
+/*H1*/
+
+h1{
+    margin: auto;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background: var(--couleur4);
+    border-radius: 1rem;
+    text-align: center;
+    width: 50%;
+    box-shadow: 0 0 10px #6d4ebd;
+    font-size: 200%;
+}
+
+/*H1*/
+
+
+/*embed*/
+
+embed{
+    width: 70%;
+    height: 50vh;
+}
+
+/*embed*/
+
+section{
+    margin: 3rem;
+}
+
+section div{
+    float: left;
+    width: 50%;
+    color: var(--text);
+}
+
+.challenge{
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.challenge h2{
+    background: var(--secondary);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.challenge div{
+    width: 100%;
+    margin-top: 5rem;
+}
+
+#sec2{
+  padding-top: 3rem;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#sec2 a{
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    background: var(--couleur3);
+    border-radius: 1rem;
+    width: 70%;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+@media (width <= 1200px){
+  body{
+    margin: 0;
+    padding: 0;
+    background-size: 175vh;
+  }
+}

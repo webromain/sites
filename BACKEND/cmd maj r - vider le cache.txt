@@ -1,0 +1,1 @@
+rechanger les priorités des deux dossier content et includes

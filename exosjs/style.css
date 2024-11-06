@@ -1,0 +1,58 @@
+/*BASE*/
+:root{
+  --back: rgb(35, 35, 35);
+  --text: white;
+}
+
+*,
+::before,
+::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inria Sans', sans-serif;
+}
+
+body{
+  background: var(--back);
+  color: var(--text);
+  display: inline-block;
+  width: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+/*BASE*/
+
+/*-------------------------------------------------------------------------------------*/
+
+/*SCROLLBAR*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--back);
+}
+/*SCROLLBAR*/
+
+/*-------------------------------------------------------------------------------------*/
+
+/*NAV*/
+/*NAV*/
+
+/*-------------------------------------------------------------------------------------*/
+
+/*BODY*/
+/*BODY*/
+
+/*-------------------------------------------------------------------------------------*/
+
+/*FOOTER*/
+/*FOOTER*/

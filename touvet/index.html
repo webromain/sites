@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="Fr-fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" type="image/png" href="src/assets/images/logo.png" />
+    <script src="app.js" defer></script>
+    <title>Touvet</title>
+</head>
+<body>
+
+    <!---------------------------------------------------------------------------------------------->
+
+    <nav id="nav">
+        <a id="logofixed" href="index.html"><img src="src/assets/images/logo.png" alt="logo"></a>
+
+        <div id="navbar" class="sidenav">
+            <a href="#" id="closeBtn" class="close">x</a>
+            <ul id="nav1">
+                <div>
+                    <li><a id="logo" style="margin-top: 0.8rem;" href="index.html"><img src="src/assets/images/logo.png" alt="logo"></a></li>
+                </div>
+                <li><a class="barre active" href="index.html">Accueil</a></li>
+                <li><a class="barre" href="mairie.html">Mairie</a></li>
+                <li><a class="barre" href="servicepublique.html">Service Public</a></li>
+                <li><a class="barre" href="viemunicipale.html">Vie Municipale</a></li>
+                <li><a href="#"><img style="width: 3.5rem;" src="src/assets/icons/robot.png" alt=""></a></li>
+            </ul>
+            <ul id="nav2">
+                <li><a href="#">MES DEMARCHES</a></li>
+                <li><a href="#">Compte Familial</a></li>
+            </ul>
+        </div>
+
+        <a href="#" id="openBtn">
+            <p>MENU</p>
+            <span class="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </a>
+    </nav>
+
+    <!---------------------------------------------------------------------------------------------->
+
+    <section id="display1">
+        <div id="filariane">
+            <p><span style="color: #A12A13;">></span> Acceuil</p>
+        </div>
+        <div>
+            <img src="src/assets/images/fond.png" alt="">
+        </div>
+        <img id="blanc" src="src/assets/images/blanc.png" alt="">
+        <div class="informe">
+            <h1>Bienvenue au Touvet !</h1>
+            <input type="search" placeholder="Recherche..." class="site-search" name="q" />
+            <h2>RECHERCHES FREQUENTES :</h2>
+            <div class="recherchefreq">
+                <a href="#">Animation / Evènement</a>
+                <a href="#">Scolaire (Inscription)</a>
+                <a href="#">Travaux, problèmes technique</a>
+                <a href="#">Urbanisme</a>
+            </div>
+        </div>
+        <div style="background-color: #FFFDE8; padding: 0.7rem; box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);"></div>
+    </section>
+
+    <section id="display2">
+        <div class="gauche">
+            <div>
+                <h2><U>Nous contacter :</U></h2>
+                <div>
+                    <img style="height: calc(100%/2);" src="src/assets/icons/mail.png" alt="">
+                    <p>mairie@letouvet.com</p>
+                </div>
+                <div>
+                    <img src="src/assets/icons/tel.png" alt="">
+                    <p>04 76 92 34 34</p>
+                </div>
+            </div>
+
+            <div class="horaires">
+                <h2><U>Horaires</U></h2>
+                <h3><span style="font-weight: bold; color: var(--secondary);">Du lundi au vendredi :</span></h3>
+                <p>8h30 - 12h00</p>
+                <p>13h30 - 19h00</p>
+
+                <h3><span style="font-weight: bold; color: var(--secondary);">Samedi :</span></h3>
+                <p>9h00 - 12h00</p>
+            </div>
+        </div>
+
+
+        <div class="droite" style="justify-content: end; float: right; margin-right: -30rem;">
+            <h2 style="margin-top: 0;"><U>Actualité :</U></h2>
+            <div id="actualite">
+                <div class="bloc">
+                    <img src="src/assets/images/logorouge.png" alt="">
+                    <div>
+                        <h3>Fermeture exceptionnelle</h3>
+                        <h4>Publié le 28 février 2024 :</h4>
+                        <p>L'accueil physique de la mairie sera exceptionnellement fermé les vendredi 1 et samedi 2 mars.</p>
+                        <a href=""><U><i>Voir plus...</i></U></a>
+                    </div>
+                    <img src="src/assets/images/mairieferme.png" alt="">
+                </div>
+                <div class="bloc">
+                    <img src="src/assets/images/logorouge.png" alt="">
+                    <div>
+                        <h3>Fermeture exceptionnelle</h3>
+                        <h4>Publié le 28 février 2024 :</h4>
+                        <p>L'accueil physique de la mairie sera exceptionnellement fermé les vendredi 1 et samedi 2 mars.</p>
+                        <a href=""><U><i>Voir plus...</i></U></a>
+                    </div>
+                    <img src="src/assets/images/vieux.png" alt="">
+                </div>
+            </div>
+
+            <h2><U>Agenda</U></h2>
+            <div class="tous">
+                <a href=""><U>Tous les dates</U> ↗</a>
+            </div>
+            <div id="agenda">
+                <div class="bloc">
+                    <img src="src/assets/images/ag1.png" alt="">
+                    <div class="date">
+                        <img class="icoag" src="src/assets/icons/agenda.png" alt="">
+                        <p>26 février - 5 avril 2024</p>
+                    </div>
+                    <p>17 ème édition des Rencontres de théâtre amateur du Touvet à la salle commune</p>
+                </div>
+                <div class="bloc">
+                    <img src="src/assets/images/ag2.png" alt="">
+                    <div class="date">
+                        <img class="icoag" src="src/assets/icons/agenda.png" alt="">
+                        <p>26 février - 5 avril 2024</p>
+                    </div>
+                    <p>17 ème édition des Rencontres de théâtre amateur du Touvet à la salle commune</p>
+                </div>
+                <div class="bloc">
+                    <img src="src/assets/images/ag3.png" alt="">
+                    <div class="date">
+                        <img class="icoag" src="src/assets/icons/agenda.png" alt="">
+                        <p>26 février - 5 avril 2024</p>
+                    </div>
+                    <p>17 ème édition des Rencontres de théâtre amateur du Touvet à la salle commune</p>
+                </div>
+            </div>
+
+
+
+            <h2><U>Démarches :</U></h2>
+            <div class="tous">
+                <a href=""><U>Toutes les publications</U> ↗</a>
+            </div>
+            <div id="demarches">
+                <div style="background: #DDE37D;" class="bloc">
+                    <p>Inscription</p>
+                    <div><img src="src/assets/icons/inscription.png" alt=""></div>
+                    <div><img src="src/assets/icons/flechedroite.png" alt=""></div>
+                </div>
+                <div style="background: #FFFDE8;" class="bloc">
+                    <p>Inscription</p>
+                    <div><img src="src/assets/icons/reserve.png" alt=""></div>
+                    <div><img src="src/assets/icons/flechedroite.png" alt=""></div>
+                </div>
+                <div style="background: #DDE37D;" class="bloc">
+                    <p>Inscription</p>
+                    <div><img src="src/assets/icons/documents.png" alt=""></div>
+                    <div><img src="src/assets/icons/flechedroite.png" alt=""></div>
+                </div>
+            </div>
+
+
+
+            <h2><U>Publications :</U></h2>
+            <div class="tous">
+                <a href=""><U>Tous les évènements</U> ↗</a>
+            </div>
+            <div id="publications">
+                <div class="bloc">
+                    <img src="src/assets/images/publi1.png" alt="">
+                    <div class="date">
+                        <img class="icoag" src="src/assets/icons/agenda.png" alt="">
+                        <p>26 février - 5 avril 2024</p>
+                    </div>
+                    <p>Le Touvet Mag</p>
+                </div>
+                <div class="bloc">
+                    <img src="src/assets/images/publi2.png" alt="">
+                    <div class="date">
+                        <img class="icoag" src="src/assets/icons/agenda.png" alt="">
+                        <p>26 février - 5 avril 2024</p>
+                    </div>
+                    <p>Le Touvet Animation</p>
+                </div>
+                <div class="bloc">
+                    <img src="src/assets/images/publi3.png" alt="">
+                    <div class="date">
+                        <img class="icoag" src="src/assets/icons/agenda.png" alt="">
+                        <p>26 février - 5 avril 2024</p>
+                    </div>
+                    <p>Livret des associations</p>
+                </div>
+            </div>
+
+
+
+            <h2><U>FAQ's :</U></h2>
+            <div id="faq">
+                <input type="search" placeholder="        Recherche..." class="site-search" name="q" />
+                <div class="qfreq">
+                    <img src="src/assets/icons/faq.png" alt="">
+                    <p>Questions fréquemment posées :</p>
+                </div>
+
+
+                <div class="faqcarre">
+                    <div>
+                        <p>Quels sont les événements prévus pour les familles et les enfants dans la commune au cours de l'année ?</p>
+                        <a href=""><img src="src/assets/icons/plus.png" alt=""></a>
+                    </div>
+                    <div>
+                        <p>Comment peut-on inscrire notre enfant à l'école communale et quels sont les documents nécessaires ?</p>
+                        <a href=""><img src="src/assets/icons/plus.png" alt=""></a>
+                    </div>
+                    <div>
+                        <p>Y a-t-il des options de repas végétariens ou des menus spéciaux pour les enfants ayant des allergies alimentaires à la cantine scolaire ?</p>
+                        <a href=""><img src="src/assets/icons/plus.png" alt=""></a>
+                    </div>
+                    <div>
+                        <p>Quel est le calendrier des travaux de voirie prévus dans la commune et comment cela affectera-t-il l'accès aux écoles et aux parcs ?</p>
+                        <a href=""><img src="src/assets/icons/plus.png" alt=""></a>
+                    </div>
+                    <div>
+                        <p>Comment la commune intègre-t-elle les espaces verts et les aires de jeux dans ses projets d'urbanisme pour les enfants ?</p>
+                        <a href=""><img src="src/assets/icons/plus.png" alt=""></a>
+                    </div>
+                    <div>
+                        <p>Existe-t-il des projets pour améliorer la sécurité routière aux abords des écoles ?</p>
+                        <a href=""><img src="src/assets/icons/plus.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        
+    </section>
+</body>
+</html>

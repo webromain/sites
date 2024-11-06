@@ -1,0 +1,73 @@
+/*BASE*/
+*,
+::before,
+::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Prompt', Arial, Helvetica, sans-serif;
+  font-weight: 800;
+}
+
+body{
+  text-align: center;
+}
+/*BASE*/
+
+/*-------------------------------------------------------------------------------------*/
+
+/*HEAD*/
+/*HEAD*/
+
+/*-------------------------------------------------------------------------------------*/
+
+/*BODY*/
+/*-----------------------------*/
+#num1{
+  margin-top: 30vh;
+}
+
+#num1 .back{
+  background: #303030;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  margin: auto;
+  width: 70%;
+  color: white;
+}
+
+#num1 #code{
+  text-transform: uppercase;
+}
+/*-----------------------------*/
+#num2{
+  padding: 1rem;
+}
+
+#num2 h2{
+  background: #303030;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  margin: auto;
+  width: 13rem;
+}
+
+#num2 #count{
+  margin: 3rem;
+  font-size: 4rem;
+  color: green;
+}
+
+#num2 button{
+  padding: 1rem;
+  width: 3rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+/*BODY*/
+
+/*-------------------------------------------------------------------------------------*/
+
+/*FOOTER*/
+/*FOOTER*/

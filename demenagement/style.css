@@ -1,0 +1,355 @@
+/*SCROLLBAR*/
+
+  body {
+    overflow: overlay;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.01);
+  }
+  
+/*SCROLLBAR*/
+
+.carousel-item img{
+	border-radius: 20px;
+}
+
+.carousel-indicators li {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin: 1rem;
+    margin-bottom: -0.5rem;
+}
+
+body{
+    background: url("images/fond1.jpg");
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium';
+}
+
+p{
+    font-family: 'Roboto';
+}
+
+/* l'affichage */
+
+#display{
+    background-color: rgba(255, 255, 255, 0.757);
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+#logoscript{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inline{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1rem;
+}
+
+.impact{
+    font-family: Impact, sans-serif;
+
+}
+
+#ulentete{
+    list-style-type: none;
+    margin-top: 0.5rem;
+    margin-left: -2rem;
+}
+
+.devis{
+    background-color: rgba(33,184,161);
+    padding: 0.5rem;
+    color: white;
+    font-family: Impact, sans-serif;
+    border: 0.05rem solid rgb(219, 219, 219);
+    border-radius: 2px;
+}
+
+.devis:hover{
+    color: white;
+}
+
+#tel{
+    background-color: rgb(40,133,70);
+    padding: 0.5rem;
+    color: white;
+    font-family: Impact, sans-serif;
+    border: 0.05rem solid rgb(219, 219, 219);
+    border-radius: 2px;
+}
+
+/* #dem{
+    background-color: rgb(40,133,70);
+}
+
+#dem a{
+    color: white;
+}
+
+#dem:hover{
+    background-color: white;
+}
+
+#dem a:hover{
+    color: rgb(40,133,70);
+} */
+
+#ulnav{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+#ulnav li{
+    background-color: white;
+    border: 0.01rem solid rgb(219, 219, 219);
+    list-style-type: none;
+    float: left;
+    padding: 0.5rem;
+    height: 2.5rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    font-size: 0.4rem;
+    font-weight: bold;
+    margin-left: -1px;
+
+}
+
+#ulnav li a{
+    color: rgb(40,133,70);
+    text-decoration: none;
+}
+
+#ulnav li:hover{
+    background-color: rgb(40,133,70);
+}
+
+#ulnav li a:hover{
+    color: white;
+}
+
+#ulnav li:first-child{
+    background-color: rgb(40,133,70);
+}
+
+#ulnav li:first-child a{
+    color: white;
+}
+
+#ulnav li:first-child:hover{
+    background-color: white;
+}
+
+#ulnav li:first-child a:hover{
+    color: rgb(40,133,70);
+}
+
+.titrecarousel{
+    font-family: Impact, sans-serif;
+    font-size: 1.5rem;
+}
+
+.textecarousel{
+    border: 1px solid white;
+    padding: 0.5rem;
+    margin-top: 0%;
+    margin-bottom: 15%;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 0.7rem;
+}
+
+#textegris{
+    color: grey;
+    font-size: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+#ulnavy{
+    margin: 0;
+    padding: 0;
+    margin-left: 1rem;
+}
+
+#ulnavy li{
+    background-color: white;
+    border: 0.01rem solid rgb(219, 219, 219);
+    list-style-type: none;
+    padding-left: 0.5rem;
+    width: 11.5rem;
+    height: 2rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    font-size: 0.65rem;
+    margin-top: -1px;
+}
+
+#ulnavy li a{
+    color: rgb(40,133,70);
+    text-decoration: none;
+}
+
+#boxes{
+    margin: 0;
+    padding: 0;
+}
+
+#boxes li{
+    list-style-type: none;
+    border: 0.01rem solid rgb(219, 219, 219);
+    width: 9.5rem;
+    height: 9.5rem;
+    text-align: center;
+    align-items: center;
+    float: left;
+    padding: 1rem;
+    margin-left: 1rem;
+    justify-content: space-between;
+    font-size: 0.6rem;
+}
+
+.textecases h6{
+    font-size: 0.8rem;
+    font-family: Impact, sans-serif;
+}
+
+.textecases img{
+    width: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+#contact{
+    width: 11.5rem;
+}
+
+#contact p{
+    font-size: 0.6rem;
+}
+
+#contact iframe{
+    width: 11.5rem;
+    height: 11.5rem;
+}
+
+#texte{
+    margin-left: 1rem;
+    display: inline-block;
+    vertical-align: top;
+    width: 68%;
+}
+
+#texte p{
+    font-size: 0.6rem;
+}
+
+#images{
+    background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+#images img{
+    width: 7rem;
+    padding: 1rem;
+    display: inline-block;
+}
+
+blockquote p{
+    border-left: 4px solid #c9c9c9;
+    padding: 0.5rem;
+    padding-left: 1rem;
+}
+
+#display2{
+    background-color: rgba(141, 231, 218, 0.757);
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: center;
+    align-items: center;
+    font-size: 0.6rem;
+}
+
+.carousel-item img {
+    filter: brightness(70%);
+    -webkit-filter: brightness(70%);
+}
+
+#display3{
+    background-color: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: center;
+    align-items: center;
+    font-size: 0.6rem;
+}
+
+#ulnavx{
+    display: flex;
+    justify-content: space-between;
+    margin-left: -1rem;
+    margin-right: 1rem;
+}
+
+#ulnavx li{
+    list-style-type: none;
+    text-align: left;
+    align-items: left;
+    font-size: 0.65rem;
+    vertical-align: top;
+    display: inline-block;
+    width: 25rem;
+}
+
+#ulnavx li{
+    font-family: 'Roboto', sans-serif;
+}
+
+#ulnavx li h6{
+    font-family: 'Franklin Gothic Medium';
+}
+
+#ulnavx li a{
+    color: rgb(40,133,70);
+}
+
+#display4{
+    background-color: black;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 0.2rem;
+}
