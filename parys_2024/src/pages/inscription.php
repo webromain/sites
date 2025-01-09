@@ -15,16 +15,16 @@
         <h1>Inscription</h1>
         <div>
             <label for="civilite">Nom<span class="rouge">*</span></label>
-            <input type="text" name="nom" id="nom" required>
+            <input type="text" name="nom" id="nom" required placeholder="Delacour">
         </div>
         <div>
             <label for="civilite">Prénom<span class="rouge">*</span></label>
-            <input type="text" name="prenom" id="prenom" required>
+            <input type="text" name="prenom" id="prenom" required placeholder="Jean">
         </div>
         <div>
             <label for="sexe">Sexe<span class="rouge">*</span></label>
-            <input type="radio" value="1" name="sexe" required> Monsieur
-            <input type="radio" value="2" name="sexe" required> Madame
+            <input type="radio" value="1" name="sexe" required> Homme
+            <input type="radio" value="2" name="sexe" required> Femme
             <input type="radio" value="3" name="sexe" required> Autre
         </div>
         <div>

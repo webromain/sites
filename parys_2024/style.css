@@ -220,7 +220,7 @@ nav ul li{
 }
 
 #display1 .droite{
-  width: 50%;
+  width: 55%;
 }
 
 #display1 .gauche img{
@@ -228,6 +228,7 @@ nav ul li{
 }
 
 #display1 .droite div{
+  width: 20rem;
   float: left;
   margin: 1rem;
   padding: 1rem;

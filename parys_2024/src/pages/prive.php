@@ -13,7 +13,7 @@ $mail = $_POST["mail"]; //se recup obligatoirement avec le name dans le html
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/formulaire.css">
     <title>Espace Client</title>
 </head>
 <body>
