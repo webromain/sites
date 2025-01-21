@@ -454,6 +454,8 @@ nav ul li{
 }
 
 #display2 #nouvelles{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -504,7 +506,7 @@ nav ul li{
   body{
     margin: 0;
     padding: 0;
-    background-size: 175vh;
+    background-size: 150%;
   }
   .navjs{
     visibility: hidden;
@@ -518,11 +520,14 @@ nav ul li{
     align-items: center;
   }
   #display1 .droite{
-    width: 70%;
-    padding-top: 24rem;
+    width: 18rem;
+    padding-top: 40rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  #display1 .droite div{
+    width: 15rem;
   }
   #display2{
     margin-top: 5rem;
@@ -551,6 +556,9 @@ nav ul li{
 }
 
 @media (width <= 1000px){
+  body{
+    background-size: 200%;
+  }
   #nav2 li{
     font-size: 0.7rem;
   }
@@ -569,7 +577,16 @@ nav ul li{
   }
 }
 
+@media (width <= 800px){
+  body{
+    background-size: 250%;
+  }
+}
+
 @media (width <= 400px) {
+  body{
+    background-size: 350%;
+  }
   #nav2 li a{
     padding: 0.3rem;
   }
