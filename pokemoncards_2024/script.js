@@ -114,3 +114,35 @@ card.forEach(el => {
     // });
 
 });
+
+// window.addEventListener('mousemove' || 'touchmove', e => {
+//     const containercontent = document.querySelectorAll('.bouge');
+
+//     containercontent.forEach(el => {
+//         let elRect = el.getBoundingClientRect();
+    
+//         let x = e.clientX - elRect.x;
+//         let y = e.clientY - elRect.y;
+
+//         let midCardWidth = elRect.width / 2;
+//         let midCardHeight = elRect.height / 2;
+
+//         let angleY = -(x - midCardWidth) / 8;
+//         let angleX = (y - midCardHeight) / 8;
+
+//         let glowX = x / elRect.width * 100;
+//         let glowY = y / elRect.height * 100;
+
+//         el.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+//         el.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgb(193, 206, 215), transparent);`;
+//         el.style.transition = '0.1s';
+//         el.style.transitionDelay = '0s';
+
+//         el.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+//         el.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgb(193, 206, 215), transparent);`;
+//         el.style.setProperty('--mouseX', glowX + '%');
+//         el.style.setProperty('--mouseY', glowY + '%');
+//         el.style.opacity = '0.8';
+//         el.style.transitionDelay = '0s';
+//     });
+// });
