@@ -1,0 +1,832 @@
+:root {
+    /* Palette de couleurs Minecraft */
+    --grass-light: #8BC34A;
+    --grass-dark: #689F38;
+    --dirt: #8B4513;
+    --stone: #808080;
+    --bedrock: #383838;
+    
+    /* Interface */
+    --ui-primary: #2196F3;     /* Bleu vif */
+    --ui-secondary: #FF9800;   /* Orange */
+    --ui-accent: #E91E63;      /* Rose */
+    --ui-success: #4CAF50;     /* Vert */
+    --ui-danger: #F44336;      /* Rouge */
+    --ui-warning: #FFC107;     /* Jaune */
+    
+    /* Texte */
+    --text-primary: #FFFFFF;
+    --text-secondary: #FFEB3B;
+    --text-accent: #76FF03;
+    --text-shadow: #000000;
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('https://db.onlinewebfonts.com/t/6ab539c6fc2b21ff0b149b3d06d7f97c.woff2') format('woff2');
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: 
+        /* Blocs d'herbe en bas */
+        repeating-linear-gradient(
+            to right,
+            #7fb238 0px,
+            #7fb238 40px,
+            #73a334 40px,
+            #73a334 80px
+        ) 0 bottom / 100% 25% fixed,
+        /* Terre sous l'herbe */
+        repeating-linear-gradient(
+            to right,
+            #8B4513 0px,
+            #8B4513 40px,
+            #A0522D 40px,
+            #A0522D 80px
+        ) 0 bottom / 100% 25% fixed,
+        /* Joueurs Minecraft */
+        url('data:image/png;base64,JOUEUR1') right 10% bottom 25% no-repeat fixed,
+        url('data:image/png;base64,JOUEUR2') left 15% bottom 25% no-repeat fixed,
+        /* Ciel dégradé */
+        linear-gradient(
+            to bottom,
+            #64B5F6 0%,    /* Bleu ciel plus vif */
+            #90CAF9 40%,   /* Bleu clair */
+            #BBDEFB 100%   /* Bleu très clair */
+        ) fixed;
+    background-size: 80px 25%, 80px 25%, 100px auto, 100px auto, 100%;
+    min-height: 100vh;
+    position: relative;
+    z-index: 0;
+    font-family: 'Minecraft', Arial, sans-serif;
+    cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA...') 16 16, auto;
+    animation: grassAnimation 60s linear infinite;
+}
+
+/* Effet de profondeur des blocs */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        /* Nuages */
+        url('data:image/png;base64,NUAGE1') 0 20px no-repeat,
+        url('data:image/png;base64,NUAGE2') 200px 50px no-repeat;
+    background-size: 100px auto;
+    animation: nuagesDefilement 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Animation subtile des blocs */
+@keyframes grassAnimation {
+    0% {
+        background-position: 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 40px 40px, 40px 40px, 40px 40px;
+    }
+}
+
+/* Ajout d'éléments décoratifs Minecraft */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+body::before {
+    background: 
+        radial-gradient(circle at 20% 20%, #8bc34a 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, #689f38 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #33691e 0%, transparent 70%);
+    opacity: 0.3;
+}
+
+body::after {
+    background-image: 
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFyWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OWI0LCAyMDIyLzA2LzEzLTIyOjAxOjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjQuMCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjMtMDMtMjdUMTE6NDA6MjMtMDQ6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjMtMDMtMjdUMTE6NDA6MjMtMDQ6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIzLTAzLTI3VDExOjQwOjIzLTA0OjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQ5YjBiMjYwLWE0ZmQtNDZiZi1hMWU0LTFkNTdjOGQ1NjA3NiIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjc0Y2FlNTQxLTlkYzAtYjU0Yi05ZjM2LTExZmY2NTYzYjU5OCIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjkwMDM5ZjIyLTk0ZTYtNDViYy05MzVjLTJhM2RhNGMzYTM4MyIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwMDM5ZjIyLTk0ZTYtNDViYy05MzVjLTJhM2RhNGMzYTM4MyIgc3RFdnQ6d2hlbj0iMjAyMy0wMy0yN1QxMTo0MDoyMy0wNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ5YjBiMjYwLWE0ZmQtNDZiZi1hMWU0LTFkNTdjOGQ1NjA3NiIgc3RFdnQ6d2hlbj0iMjAyMy0wMy0yN1QxMTo0MDoyMy0wNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+'),
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFyWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OWI0LCAyMDIyLzA2LzEzLTIyOjAxOjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjQuMCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjMtMDMtMjdUMTE6NDA6MjMtMDQ6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjMtMDMtMjdUMTE6NDA6MjMtMDQ6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIzLTAzLTI3VDExOjQwOjIzLTA0OjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQ5YjBiMjYwLWE0ZmQtNDZiZi1hMWU0LTFkNTdjOGQ1NjA3NiIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjc0Y2FlNTQxLTlkYzAtYjU0Yi05ZjM2LTExZmY2NTYzYjU5OCIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjkwMDM5ZjIyLTk0ZTYtNDViYy05MzVjLTJhM2RhNGMzYTM4MyIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwMDM5ZjIyLTk0ZTYtNDViYy05MzVjLTJhM2RhNGMzYTM4MyIgc3RFdnQ6d2hlbj0iMjAyMy0wMy0yN1QxMTo0MDoyMy0wNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ5YjBiMjYwLWE0ZmQtNDZiZi1hMWU0LTFkNTdjOGQ1NjA3NiIgc3RFdnQ6d2hlbj0iMjAyMy0wMy0yN1QxMTo0MDoyMy0wNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+');
+    background-size: 64px 64px;
+    opacity: 0.1;
+    animation: backgroundScroll 20s linear infinite;
+}
+
+@keyframes backgroundScroll {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 64px 64px;
+    }
+}
+
+/* Modification du conteneur de jeu */
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 900px;
+    margin: auto;
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(33, 33, 33, 0.95));
+    border: 4px solid var(--ui-primary);
+    box-shadow: 
+        inset 0 0 20px #000,
+        0 0 10px rgba(0, 0, 0, 0.7),
+        0 3px 8px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(33, 150, 243, 0.2);
+    border-radius: 8px;
+}
+
+/* Style des instructions */
+.instructions {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--ui-primary);
+    padding: 10px;
+    border-radius: 4px;
+    color: var(--text-primary);
+    text-align: center;
+    order: 4; /* Place les instructions en dernier */
+    margin: 0;
+    margin-top: -15px !important;
+}
+
+.game-main {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 10px;
+    order: 1; /* Place le jeu en premier */
+}
+
+.leaderboard {
+    width: 250px;
+    margin-right: 10px;
+    order: 2; /* Place le leaderboard en deuxième */
+}
+
+/* Ajout d'un effet de brillance sur les boutons */
+.minecraft-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.minecraft-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    transform: rotate(45deg);
+    animation: buttonShine 3s infinite;
+}
+
+@keyframes buttonShine {
+    from {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    to {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.score-container {
+    color: var(--text-accent);
+    font-size: clamp(14px, 3vw, 24px);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px var(--text-shadow);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    order: 1;
+}
+
+#gameCanvas {
+    border: 4px solid var(--ui-primary);
+    background: 
+        /* Texture de terre Minecraft */
+        repeating-conic-gradient(
+            from 0deg at 10px 10px,
+            #8B4513 0deg 90deg,    /* Marron foncé */
+            #A0522D 90deg 180deg,  /* Marron moyen */
+            #8B4513 180deg 270deg,
+            #A0522D 270deg 360deg
+        ),
+        /* Texture de points pour la terre */
+        radial-gradient(
+            circle at 50% 50%,
+            #6B3711 2px,           /* Points plus foncés */
+            transparent 2px
+        );
+    background-size: 20px 20px, 8px 8px;
+    background-position: 0 0, 4px 4px;
+    box-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(33, 150, 243, 0.15),
+        inset 0 0 15px rgba(0, 0, 0, 0.4);
+    display: block;
+    margin: 0 auto;
+    width: min(40vh, 90vw); /* Réduction de la taille du canevas */
+    height: min(40vh, 90vw); /* Réduction de la taille du canevas */
+    aspect-ratio: 1;
+    object-fit: contain;
+    image-rendering: pixelated;
+    position: relative;
+    order: 2;
+}
+
+/* Ajouter un effet de texture supplémentaire */
+#gameCanvas::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent 0px,
+            rgba(139, 69, 19, 0.1) 1px,
+            transparent 2px
+        );
+    background-size: 4px 4px;
+    pointer-events: none;
+}
+
+/* Effet de brillance sur le contour avec moins d'intensité */
+#gameCanvas::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(45deg, 
+        var(--ui-primary) 0%,
+        transparent 50%,
+        var(--ui-primary) 100%
+    );
+    opacity: 0.2; /* Réduction de l'opacité */
+    animation: borderGlow 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes borderGlow {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.3; }
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    order: 3;
+}
+
+.minecraft-btn {
+    background: linear-gradient(to bottom, var(--ui-primary), #1976D2);
+    border: 3px solid var(--bedrock);
+    border-bottom: 3px solid #1565C0;
+    color: var(--text-primary);
+    padding: 8px 16px;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: clamp(14px, 3vw, 16px);
+    cursor: pointer;
+    text-shadow: 2px 2px #000;
+    position: relative;
+    transition: all 0.1s;
+}
+
+.min-btn {
+    margin-top: -20px !important;
+}
+
+.minecraft-btn:hover {
+    background: linear-gradient(to bottom, #2196F3, #1E88E5);
+    transform: translateY(-2px);
+}
+
+.minecraft-btn:active {
+    transform: translateY(0);
+    border-bottom: 3px solid #373737;
+}
+
+.minecraft-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.minecraft-btn:disabled:hover {
+    background-color: #727272;
+    transform: none;
+}
+
+.minecraft-btn.active {
+    background: linear-gradient(to bottom, var(--ui-success), #388E3C);
+}
+
+.instructions h2 {
+    color: var(--ui-warning);
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    text-shadow: 2px 2px var(--text-shadow);
+    text-align: center;
+}
+
+.instructions p {
+    margin: 4px 0;
+    font-size: 0.8em;
+    line-height: 1.3;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+
+    .game-container {
+        padding: 5px;
+        margin: 0;
+    }
+
+    .score-container {
+        margin-bottom: 10px;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .minecraft-btn {
+        width: 100%;
+        padding: 8px;
+        font-size: clamp(12px, 4vw, 16px);
+    }
+
+    .instructions {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .game-message {
+        width: 80%;
+        font-size: clamp(16px, 5vw, 24px);
+        padding: 15px;
+    }
+}
+
+@media (max-height: 700px) {
+    .game-container {
+        transform: none;
+        padding: 8px;
+        gap: 5px;
+    }
+
+    .score-container {
+        margin-bottom: 5px;
+        font-size: clamp(12px, 2.5vw, 18px);
+    }
+
+    .controls {
+        margin: 5px 0;
+    }
+
+    .minecraft-btn {
+        padding: 5px 10px;
+    }
+
+    .instructions {
+        margin-top: 5px;
+        font-size: clamp(8px, 2vw, 14px);
+    }
+
+    .instructions h2 {
+        font-size: clamp(12px, 2.5vw, 18px);
+        margin: 5px 0;
+    }
+}
+
+@media (max-height: 600px) {
+    #gameCanvas {
+        width: min(35vh, 90vw);
+        height: min(35vh, 90vw);
+    }
+}
+
+@media (max-height: 500px) {
+    #gameCanvas {
+        width: min(30vh, 90vw);
+        height: min(30vh, 90vw);
+    }
+}
+
+/* Style pour la barre de défilement des instructions */
+.instructions::-webkit-scrollbar {
+    width: 8px;
+}
+
+.instructions::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.instructions::-webkit-scrollbar-thumb {
+    background: #727272;
+    border-radius: 4px;
+}
+
+.instructions::-webkit-scrollbar-thumb:hover {
+    background: #8B8B8B;
+}
+
+/* Ajout des styles pour le message */
+.game-message {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(33, 33, 33, 0.98));
+    border: 3px solid var(--ui-primary);
+    padding: 10px 15px;
+    color: var(--ui-danger);
+    font-size: 16px;
+    text-shadow: 2px 2px #000;
+    z-index: 10;
+    text-align: center;
+    min-width: 150px;
+    animation: messageAppear 0.3s ease-out;
+}
+
+.game-message.show {
+    display: block;
+}
+
+@keyframes messageAppear {
+    from {
+        transform: translate(-50%, 0) scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Style pour le message de score */
+.score-text {
+    color: #FFAA00;
+    display: block;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+@media (max-height: 600px) {
+    .game-container {
+        padding: 5px;
+        gap: 2px;
+    }
+
+    #gameCanvas {
+        max-height: 30vh;
+    }
+
+    .instructions {
+        max-height: 12vh;
+        padding: 3px;
+    }
+
+    .controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .minecraft-btn {
+        padding: 3px 8px;
+        min-width: auto;
+        font-size: clamp(8px, 1.8vw, 12px);
+    }
+}
+
+@media (max-width: 400px) {
+    .game-container {
+        padding: 3px;
+    }
+
+    .controls {
+        margin: 3px 0;
+    }
+
+    .minecraft-btn {
+        padding: 2px 6px;
+    }
+}
+
+/* Ajouter ces styles pour le message de pause */
+.game-message.pause {
+    color: var(--ui-warning);
+    border-color: var(--ui-warning);
+}
+
+/* Ajuster le style du bouton pause actif */
+.minecraft-btn.pause-active {
+    background-color: #50C878;
+}
+
+@media (max-width: 600px) {
+    .controls {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .minecraft-btn {
+        width: 100%;
+        padding: 8px 5px;
+        font-size: clamp(10px, 3vw, 14px);
+    }
+
+    .game-message {
+        font-size: 14px;
+        width: auto;
+        padding: 8px 12px;
+    }
+}
+
+/* Animation de brillance améliorée */
+@keyframes buttonShine {
+    0% {
+        background: linear-gradient(
+            45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 100%
+        );
+    }
+    50% {
+        background: linear-gradient(
+            45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            transparent 100%
+        );
+    }
+    100% {
+        background: linear-gradient(
+            45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 100%
+        );
+    }
+}
+
+/* Score clignotant lors d'un nouveau meilleur score */
+@keyframes scoreFlash {
+    0% { color: var(--text-accent); }
+    50% { color: var(--ui-warning); }
+    100% { color: var(--text-accent); }
+}
+
+.new-high-score {
+    animation: scoreFlash 1s infinite;
+}
+
+/* Ajouter les nuages */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        /* Nuages */
+        url('data:image/png;base64,NUAGE1') 0 20px no-repeat,
+        url('data:image/png;base64,NUAGE2') 200px 50px no-repeat;
+    background-size: 100px auto;
+    animation: nuagesDefilement 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Styles pour le leaderboard */
+.leaderboard {
+    width: 250px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid var(--ui-primary);
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 45px; /* Pour aligner avec le canvas (compense la hauteur du score) */
+    position: sticky;
+    top: 20px;
+    margin-right: 10px;
+}
+
+.leaderboard h2 {
+    color: var(--ui-warning);
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 1.2em;
+    text-shadow: 2px 2px var(--text-shadow);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ui-primary);
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Style pour la barre de défilement du leaderboard */
+.leaderboard-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.leaderboard-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.leaderboard-list::-webkit-scrollbar-thumb {
+    background: var(--ui-primary);
+    border-radius: 3px;
+}
+
+.leaderboard-list::-webkit-scrollbar-thumb:hover {
+    background: #1E88E5;
+}
+
+.leaderboard-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.leaderboard-item.gold {
+    background: linear-gradient(to right, rgba(255, 215, 0, 0.2), rgba(0, 0, 0, 0.5));
+    border-left: 3px solid gold;
+}
+
+.leaderboard-item.silver {
+    background: linear-gradient(to right, rgba(192, 192, 192, 0.2), rgba(0, 0, 0, 0.5));
+    border-left: 3px solid silver;
+}
+
+.leaderboard-item.bronze {
+    background: linear-gradient(to right, rgba(205, 127, 50, 0.2), rgba(0, 0, 0, 0.5));
+    border-left: 3px solid #cd7f32;
+}
+
+.leaderboard-rank {
+    font-weight: bold;
+    color: var(--text-secondary);
+    min-width: 30px;
+}
+
+.leaderboard-name {
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.leaderboard-score {
+    color: var(--text-accent);
+    font-weight: bold;
+}
+
+/* Animation pour les nouveaux scores */
+@keyframes newScore {
+    from {
+        background-color: rgba(76, 175, 80, 0.3);
+    }
+    to {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+}
+
+.leaderboard-item.new {
+    animation: newScore 2s ease-out;
+}
+
+@media (max-height: 600px) {
+    .leaderboard {
+        max-height: 150px;
+    }
+}
+
+/* Ajustements responsive */
+@media (max-width: 900px) {
+    .game-container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .game-main {
+        margin: 0;
+        min-width: unset;
+    }
+
+    .leaderboard {
+        width: 100%;
+        margin: 0;
+        max-height: none;
+    }
+
+    .instructions {
+        margin: 10px 0;
+    }
+
+    #gameCanvas {
+        width: min(80vw, 400px);
+        height: min(80vw, 400px);
+    }
+}
+
+@media (max-height: 800px) {
+    .game-container {
+        margin: 5px auto;
+    }
+
+    .instructions {
+        margin: 8px 0;
+    }
+
+    .instructions p {
+        margin: 2px 0;
+    }
+}
+
+@keyframes nuagesDefilement {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.view-all-scores {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #727272;
+}
+
+.view-all-scores .minecraft-btn,
+.back-button .minecraft-btn {
+    width: 100%;
+    max-width: 200px;
+    overflow: visible; /* Annuler le overflow:hidden qui permet l'effet de brillance */
+}
+
+.view-all-scores .minecraft-btn::after,
+.back-button .minecraft-btn::after {
+    display: none; /* Supprimer l'effet de brillance */
+} 

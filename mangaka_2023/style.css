@@ -262,7 +262,7 @@ ul{
   }
   
   
-  button{
+  .submit:last-child{
     display: block;
     margin: 0 auto;
     background: radial-gradient(rgb(0, 217, 255), rgb(0, 115, 255));
@@ -273,7 +273,7 @@ ul{
     border-radius: 10px;
   }
   
-  button:hover{
+  .submit:hover{
     background: radial-gradient(rgb(0, 146, 172), rgb(0, 62, 137));
     color: white;
   }

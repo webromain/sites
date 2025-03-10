@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CyberSnake 2077</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="cursor"></div>
+    <div class="container">
+        <div class="glitch-container">
+            <h1 class="glitch" data-text="CYBERSNAKE_2077">CYBERSNAKE_2077</h1>
+        </div>
+        
+        <div class="game-container">
+            <div class="score-container">
+                <div class="score">Score: <span id="score">0</span></div>
+                <div class="high-score">High Score: <span id="highScore">0</span></div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="gameCanvas" width="400" height="400"></canvas>
+                <div class="scan-line"></div>
+            </div>
+
+            <div class="controls">
+                <button id="autoButton" class="cyber-button">
+                    <span class="button-content">Mode Auto</span>
+                    <span class="button-glitch"></span>
+                </button>
+                <button id="resetButton" class="cyber-button">
+                    <span class="button-content">Reset</span>
+                    <span class="button-glitch"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <div class="instruction-title">INSTRUCTIONS_</div>
+            <div class="instruction-text">
+                [↑] Haut | [↓] Bas | [←] Gauche | [→] Droite
+            </div>
+        </div>
+    </div>
+    <canvas id="cityscapeCanvas"></canvas>
+    <script src="game.js"></script>
+    <script src="particles.js"></script>
+    <script src="cityscape.js"></script>
+    <script>
+        const cityscape = new CityScape();
+    </script>
+</body>
+</html> 

@@ -11,25 +11,28 @@
     <title>Connexion</title>
 </head>
 <body>
-    <form method="post" action="prive.php">
+    <form>
         <h1>Connexion</h1>
         <div>
+            <label for="nom">Nom<span class="rouge">*</span></label>
+            <input type="text" name="nom" id="nom" required placeholder="Delacour" disabled>
+        </div>
+        <div>
+            <label for="prenom">Prénom<span class="rouge">*</span></label>
+            <input type="text" name="prenom" id="prenom" required placeholder="Jean" disabled>
+        </div>
+        <div>
             <label for="mail">E-mail<span class="rouge">*</span></label>
-            <input type="email" name="mail" id="mail" required placeholder="exemple@messagerie.com">
+            <input type="email" name="mail" id="mail" required placeholder="exemple@messagerie.com" disabled>
         </div>
         <div>
-            <label for="password">Password<span class="rouge">*</span></label>
-            <input type="password" name="password" id="password" required placeholder="Mot de passe">
-        </div>
-        <div>
-            <input type="reset" value="Effacer">
-            <input type="submit" value="Se connecter" class="animate__animated animate__pulse animate__infinite animate__slow">
+            <input type="reset" value="Effacer" disabled>
+            <input type="submit" disabled>
         </div>
     </form>
 
-    <div>
+    <div class="inscon">
         <a href="inscription.php">Inscription</a>
-        <a href="oubli.php">Mot de passe oublié</a>
     </div>
     
 </body>

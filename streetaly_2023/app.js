@@ -1,34 +1,18 @@
-/*const ratio = 0.1
-const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: ratio
+/*NAV*/
+var sidenav = document.getElementById("navbar");
+var openBtn = document.getElementById("openBtn");
+var claseBtn = document.getElementById("closeBtn");
+
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
+
+// Set the width of the side navigation to 10rem
+function openNav() {
+    sidenav.classList.add("active");
 }
 
-const handleIntersect = function (entries, observer) {
-    entries.forEach(function (entry) {
-        if (entry.intersectionRatio > ratio) {
-            entry.target.classList.add('reveal-visible')
-            observer.unobserve(entry.target)
-        }
-    })
+// Set the width of the side navigation to 0
+function closeNav() {
+    sidenav.classList.remove("active");
 }
-
-const observer = new IntersectionObserver(handleIntersect, options)
-document.querySelectorAll('.reveal').forEach(function (r) {
-    observer.observe(r)
-})
-
-window.onscroll = function () {
-
-    if(document.documentElement.scrollTop > 10) {
-        document.getElementById("navbar").style.background = "black";
-        document.getElementById("navbar").style.transition = "0.2s ease";
-        document.getElementById("navbar").style.position = "fixed";
-    }
-    else {
-        document.getElementById("navbar").style.background = "";
-        document.getElementById("navbar").style.position = "relative";
-    }
-};
-*/
+/*NAV*/
