@@ -1,18 +1,23 @@
+// if(!browser){
+//     return
+// }
+
 /*NAV*/
-var sidenav = document.getElementById("navbar");
-var openBtn = document.getElementById("openBtn");
-var claseBtn = document.getElementById("closeBtn");
+// var sidenav = document.getElementByID("navi");
+// var nav = document.getElementsByClassName("nav");
 
-openBtn.onclick = openNav;
-closeBtn.onclick = closeNav;
+// sidenav.onclick = openNav;
 
-// Set the width of the side navigation to 10rem
-function openNav() {
-    sidenav.classList.add("active");
-}
-
-// Set the width of the side navigation to 0
-function closeNav() {
-    sidenav.classList.remove("active");
-}
+// function openNav() {
+//     if(nav.classList.contains("active") && (screen.width<=1200)) {
+//         nav.classList.remove("active");
+//     } else {
+//         nav.classList.add("active");
+//     }
+// }
 /*NAV*/
+
+function toggleNav() {
+  var navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+}

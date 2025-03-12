@@ -19,19 +19,39 @@
 
   
 
-    <ul id="navbar" class="reveal">
+    <!-- <ul id="navbar" class="reveal open-btn">
       <li><a href="main.html"><img src="images/logo-streetaly3.png" alt="streetaly" style="width: 4rem"></a></li>
       <li class="nav"><a href="introduction.html#introduction">NOUS TROUVER</a></li>
       <li class="nav"><a href="partie1.html#partie1">NOS SPECIALITES</a></li>
       <li class="nav"><a href="partie2.html#partie2">NOUS CONTACTER</a></li>
-    </ul>
+    </ul> -->
+
+    
+    <nav id="navbar" class="reveal">
+      <div>
+        <a href="main.html"><img src="images/logo-streetaly3.png" alt="streetaly" style="width: 4rem"></a>
+        <a href="#" id="nav-btn" onclick="toggleNav()">
+          <span class="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li class="navi"><a href="introduction.html#introduction">NOUS TROUVER</a></li>
+        <li class="navi"><a href="partie1.html#partie1">NOS SPECIALITES</a></li>
+        <li class="navi"><a href="partie2.html#partie2">NOUS CONTACTER</a></li>
+      </ul>
+    </nav>
+    
 
 
     <div class="streetaly">
       <h1>Bienvenue chez<br><span>Streetaly !</span></h1>
     </div>
 
-    <p class="pheader"><img src="images/logo-streetaly.png" alt="logo-streetaly" style="width: 8vh; padding: 4%;"><br>En partenariat avec Artari !<br><img src="images/logo-artari.jpg" alt="logo-artari" style="width: 8vh; padding: 4%"></p>
+    <p class="pheader"><img src="images/logo-streetaly.png" alt="logo-streetaly"><br>En partenariat avec Artari !<br><img src="images/logo-artari.jpg" alt="logo-artari"></p>
 
     <h2>Bienvenue dans le monde de l'Italie !</h2>
 
@@ -75,14 +95,14 @@
         </a>
       </div>
 
-    <div style="padding-top: 10%;">
-      <img src="images/baniere.jpg" alt="banierecafe" style="width: 100%; display: flex;">
-      <a href="#noustrouver" style="margin-left: 9%; margin-top: -31%; display: block; border: solid; border-radius: 3px; color: #955149; font-size: large; font-weight: bold;">NOUS TROUVER</a>
+    <div class="banniere">
+      <img src="images/baniere.jpg" alt="banierecafe">
+      <a href="#noustrouver">NOUS TROUVER</a>
     </div>
 
 
-    <ul id="basdepage" style="margin-top: 40%;">
-      <li><p style="margin-right: 0; margin-left: 0;">Haikwo's Industries - Tout droit réservé</p></li>
+    <ul id="basdepage">
+      <li><p>Haikwo's Industries - Tout droit réservé</p></li>
     </ul>
 
     <script src="app.js"></script>

@@ -102,15 +102,16 @@ header {
   font-size: 1.25rem;
 }
 
-#navbar{
-	display: flex;
-	align-items: center;
-}
-
-#navbar ul {
-  list-style: none;
+ul {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+
+#navbar{
+	display: flex;
+  justify-content: center;
+	align-items: center;
 }
 
 #navbar li {
@@ -123,7 +124,7 @@ header {
   text-decoration: none;
   text-transform: uppercase;
 }
-.nav a::after {
+.navi a::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -136,7 +137,7 @@ header {
   transition: transform 250ms;
 }
 
-.nav a:hover::after {
+.navi a:hover::after {
   transform: translateX(-50%) scaleX(1);
 }
 
@@ -145,6 +146,11 @@ header {
 	margin-left: 80%;
 	text-align: center;
 	line-height: 200%;
+  text-align: center;
+}
+
+.pheader img{
+  width: 3rem;
 }
 
 h2{
@@ -177,38 +183,7 @@ h2{
     -webkit-animation: fadein 1s; /* Safari et Chrome */
     -o-animation: fadein 1s; /* Opera */
 }
-@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-moz-keyframes fadein { /* sur Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-webkit-keyframes fadein { /* sur Safari et Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-o-keyframes fadein { /* sur Opera */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+
 
 /*anim apparition*/
 
@@ -248,23 +223,15 @@ body{
 	white-space: nowrap;
 }
 
-#navbar{
-    list-style: none;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-	margin-top: -1%;
-}
-
 #navbar li{
     padding: 3%;
-	letter-spacing: 1px;
+	  letter-spacing: 1px;
 }
 
 #navbar li a{
     color: white;
     font-family: 'Nunito';
-    font-size: 85%;
+    font-size: 1rem;
 }
 
 #navbar li a:hover{
@@ -310,9 +277,25 @@ p, .contenu h5{
   margin-left: 5%;
 }
 
+.banniere{
+  margin: 5rem 0 5rem 0;
+  height: 10rem;
+}
+
+.banniere a{
+  margin-left: 9%;
+  margin-top: -31%;
+  display: block;
+  border: solid;
+  border-radius: 3px;
+  color: #955149;
+  font-size: large;
+  font-weight: bold;
+}
+
 #basdepage{
-  left: 0;
-  right: 0;
+  margin-top: 20rem;
+  width: 100%;
   bottom: 0;
   padding: 2%;
   display: flex;
@@ -320,7 +303,7 @@ p, .contenu h5{
   text-align: center;
   background-color: #292929;
   color: white;
-  list-style-type: none;
+  list-style: none;
 }
 
 #precsuiv{
@@ -329,27 +312,102 @@ p, .contenu h5{
 	margin-bottom: 5%;
 }
 
-@media (width <= 1200px){
-	#navbar{
-		flex-direction: column;
-		background-color: rgb(228, 228, 228);
-		transition: 0.3 ease-out;
-	  }
+#navbtn{
+  display: none;
+}
 
-	  #navbar li{
-		padding: 1rem;
-	  }
+#navbar > ul{
+  transition: 0.2s;
+}
+.nav-links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  margin: 0.5rem 0 0 0;
+}
+.nav-links li a{
+  margin: 0 1.5rem 0 0;
+  text-align: center;
+}
 
-	  #navbar li a{
-		color: black;
-	  }
-	
-	  #nav1{
-		display: flex;
-		flex-direction: column;
-	  }
-	  #nav2{
-		display: flex;
-		flex-direction: column;
-	  }
+@media (max-width: 1200px) {
+  #navbar{
+    display: block;
+  }
+  #navbar > div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: white;
+    justify-content: space-between;
+    height: 5rem;
+    padding: 1rem;
+    z-index: 100;
+  }
+  #navbar > a{
+    padding: 1rem;
+  }
+  #navbar li a{
+    color: black;
+  }
+  .nav-links{
+    width: 100%;
+    margin-top: -12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+  }
+  #navbar > ul > li{
+    padding: 1rem;
+  }
+  .nav-links.active{
+    margin-top : 0;
+  }
+  #nav-btn{
+    display: block;
+  }
+  .burger-icon span {
+    display: block;
+    width: 35px;
+    height: 3px;
+    background-color: black;
+    margin: 10px 0;
+  }
+}
+
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* sur Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* sur Safari et Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* sur Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
 }
