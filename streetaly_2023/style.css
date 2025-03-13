@@ -76,6 +76,9 @@ p{
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 body {
@@ -124,7 +127,7 @@ ul {
   text-decoration: none;
   text-transform: uppercase;
 }
-.navi a::after {
+.nav-links a::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -137,16 +140,17 @@ ul {
   transition: transform 250ms;
 }
 
-.navi a:hover::after {
+.nav-links a:hover::after {
   transform: translateX(-50%) scaleX(1);
 }
 
 .pheader{
 	color: white;
-	margin-left: 80%;
+	right: 2rem;
 	text-align: center;
 	line-height: 200%;
-  text-align: center;
+  margin: 2rem;
+  margin-left: 80%;
 }
 
 .pheader img{
@@ -166,7 +170,11 @@ h2{
 #carouselExampleCaptions{
 	width: 70%;
 	margin-left: 15%;
-	margin-top: 25%;
+	margin-top: 10rem;
+}
+
+#carouselExampleCaptions img{
+  border-radius: 20px;
 }
 
 @font-face {
@@ -201,21 +209,21 @@ body{
 }
 
 .streetaly{
+  width: 100%;
 	display: flex;
 	justify-content: center;
-	margin-left: -5%;
+  margin-top: 7rem;
 }
 
 .streetaly h1{
 	color: white;
-	margin-top: 5rem;
 	font-size: 4rem;
 	font-family: 'Fasthand', cursive;
 }
 
 .streetaly span{
 	color: rgb(182, 55, 43);
-	margin-left: 20%;
+	margin-left: 7rem;
 	text-align: center;
 	font-family: 'Dancing Script', serif;
 	font-size: 7rem;
@@ -267,6 +275,14 @@ body{
 	}
 }
 
+.presentation{
+  margin: 10rem 12rem 0 12rem;
+  background: #301d1b;
+  color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
 p, .contenu h5{
   margin-left: 3%;
 }
@@ -277,31 +293,67 @@ p, .contenu h5{
   margin-left: 5%;
 }
 
+.bandeau{
+  background: url('images/baniere.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 30rem;
+}
+
 .banniere{
-  margin: 5rem 0 5rem 0;
-  height: 10rem;
+  margin-top: 10rem;
+}
+
+.banniere > div > a{
+  text-decoration: none;
+}
+
+.banniere div:last-child{
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: -25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banniere iframe{
+  width: 20rem;
+  height: 20rem;
+  border-radius: 0.5rem;
 }
 
 .banniere a{
-  margin-left: 9%;
-  margin-top: -31%;
-  display: block;
-  border: solid;
-  border-radius: 3px;
-  color: #955149;
+  width: 12rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
   font-size: large;
   font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s;
+  border: white 2px solid;
+  border-radius: 1rem;
+  background-color: #301d1b;
+  padding: 0.5rem 0.2rem 0.5rem 0.2rem;
+}
+
+.banniere a:hover{
+  color: #301d1b;
+  background-color: white;
+  border: #301d1b 2px solid;
 }
 
 #basdepage{
-  margin-top: 20rem;
+  margin-top: 15rem;
   width: 100%;
-  bottom: 0;
+  bottom: -1px;
   padding: 2%;
   display: flex;
   justify-content: center;
   text-align: center;
-  background-color: #292929;
+  background-color: #140d0d;
   color: white;
   list-style: none;
 }
@@ -332,6 +384,9 @@ p, .contenu h5{
 }
 
 @media (max-width: 1200px) {
+  body{
+    background-position: fixed;
+  }
   #navbar{
     display: block;
   }
@@ -364,7 +419,7 @@ p, .contenu h5{
     padding: 1rem;
   }
   .nav-links.active{
-    margin-top : 0;
+    margin-top : -1px;
   }
   #nav-btn{
     display: block;
@@ -375,6 +430,64 @@ p, .contenu h5{
     height: 3px;
     background-color: black;
     margin: 10px 0;
+    transition: 0.2s;
+  }
+  #nav-btn.active .burger-icon span{
+    width: 30px;
+  }
+  #nav-btn.active .burger-icon span:first-child{
+    transform: rotate(45deg) translateY(9px);
+  }
+  #nav-btn.active .burger-icon span:nth-child(2){
+    transform: rotate(-45deg) translateY(-9px);
+  }
+  #nav-btn.active .burger-icon span:last-child{
+    transform: rotate(-45deg) translateY(-18px) translateX(9px);
+    height: 2px;
+  }
+  .streetaly h1{
+    font-size: 3rem;
+  }
+  .streetaly span{
+    font-size: 5rem;
+  }
+  .pheader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem;
+    margin: 0;
+  }
+  .pheader img{
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .streetaly h1{
+    font-size: 2.5rem;
+  }
+  .streetaly span{
+    font-size: 4rem;
+    margin-left: 3rem;
+  }
+  .banniere div:last-child{
+    margin: 0;
+    margin-top: -28rem;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+  .banniere iframe{
+    width: 15rem;
+    height: 15rem;
+  }
+  .presentation{
+    margin: 10rem 2rem 0 2rem;
+    padding: 1rem;
   }
 }
 

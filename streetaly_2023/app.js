@@ -19,5 +19,7 @@
 
 function toggleNav() {
   var navLinks = document.querySelector('.nav-links');
+  var navBtn = document.getElementById('nav-btn');
   navLinks.classList.toggle('active');
+  navBtn.classList.toggle('active');
 }
