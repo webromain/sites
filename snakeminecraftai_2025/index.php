@@ -62,7 +62,7 @@ $highScore = !empty($scoresData['scores']) ? $scoresData['scores'][0]['score'] :
                 <button id="resetBtn" class="minecraft-btn min-btn">Réinitialiser</button>
                 <button id="pauseBtn" class="minecraft-btn min-btn">Pause</button>
                 <button id="autoBtn" class="minecraft-btn min-btn">Mode Auto</button>
-                <button onclick="window.location.href = 'snake-cyberpunk-2025/index.html';" class="minecraft-btn min-btn">Snake Cyberpunk <span style="font-size: 0.8rem;">(expo)</span></button>
+                <button onclick="window.location.href = 'snakecyberpunkai_2025/index.html';" class="minecraft-btn min-btn">Snake Cyberpunk <span style="font-size: 0.8rem;">(expo)</span></button>
             </div>
         </div>
         <div class="leaderboard">

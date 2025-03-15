@@ -273,6 +273,7 @@ p{
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 #images img{
@@ -352,4 +353,19 @@ blockquote p{
     margin-left: 20%;
     margin-right: 20%;
     padding: 0.2rem;
+}
+
+@media (max-width: 1200px) {
+    #display{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #display2{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #display3{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
